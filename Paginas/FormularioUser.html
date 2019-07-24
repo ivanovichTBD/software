@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../node_modules/bootstrap-toggle/css/bootstrap2-toggle.min.css">
     <link rel="stylesheet" href="../node_modules/pageCSS/index.css">
+    <link rel="stylesheet" href="../node_modules/pageCSS/Formulario.css">
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -14,57 +15,63 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
-    <form role="form">
-            <div class="form-group">
-               <label for="email">Name</label>
-               <input type="email" class="form-control" id="email">
-              </div>
-              <div>
-              <label for="email">Apellido</label>
-              <input type="email" class="form-control" id="email">
-              </div>
-            
+        
 
+    <div class="container card">
+    <form role="form">
+            <div class="registro panel panel-default">
+                    <div class="panel-body">
+                      REGISTRO
+                    </div>
+            </div>
+            <div class="row">
+                
+              <label class="qui" for ="email">Name</label>
+               <input type="email" class="nombre form-control" id="email" name="nombre">
             
+            </div>
             
-              <label class="col-md-1 control-label" for="radios">Sexo <h11>*</h11></label>
-              <div class="col-md-4"> 
-                <label required="" class="radio-inline" for="radios-0" >
-                  <input name="sexo" id="sexo" value="feminino" type="radio" required>
-                  Feminino
-                </label> 
-                <label class="radio-inline" for="radios-1">
-                  <input name="sexo" id="sexo" value="masculino" type="radio">
-                  Masculino
-                </label>
+              <div class="row">
+              <label class="erwin" for="email">Apellido</label>
+              <input type="email" class="apellido form-control" id="email">
               </div>
-            
-       
-        <div class="form-group">
-          <label for="email">Email address:</label>
-          <input type="email" class="form-control" id="email">
+                <div class="cin row">
+                    <label class="erwin" for="number">CI</label>
+                    <input type="text" class="ci form-control" id="number">
+                </div>
+                    <div>
+                            <lavel class="erwi" for="option">Sexo:</lavel>
+                            <select class="ole" name="" iud="option">
+                                <option value="">Masculino</option>
+                                <option value="">Femenino</option>"
+                            </select>
+                        </div>
+        <div class="row">
+          <label class="erwin" for="email">Email:</label>
+          <input type="email" class="email form-control" id="email">
           
         </div>
-        <div class="form-group">
-          <label for="pwd">Password:</label>
-          <input type="password" class="form-control" id="pwd">
+        <div class="row">
+          <label class="erwin" for="pwd">Password:</label>
+          <input type="password" class="contraseña form-control" id="pwd">
+        </div>
+        <div class="row">
+            <label class="erwin" for="pwd">Confirm Password:</label>
+          <input type="password" class="confcontraseña form-control" id="pwd">
         </div>
         <div>
-            <label for="pwd">Confirm Password:</label>
-          <input type="password" class="form-control" id="pwd">
-        </div>
-        <div>
-        <lavel for="option">Elige una opción:</lavel>
-        <select class="" name="" iud="option">
+        <lavel class="erwi" for="option">Rol:</lavel>
+        <select class="ole" name="" iud="option">
             <option value="">Docente</option>
             <option value="">Estudiante</option>"
         </select>
-        
     </div>
-        <button class="submit" class="btn btn-primary">Guardar</button>
-      </form>
-    </div>
-    
+
+       <div>
+            <button class="ole submit" class="btn btn-primary">Guardar</button>
+            </form>
+                <button class="cancela ole submit" class="btn btn-primary">Cancelar</button>
+                </form>
+       </div>
 </body>
 </html>
