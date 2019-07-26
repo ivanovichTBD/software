@@ -33,13 +33,16 @@
         
           <div class="row">
           <div class="botonesMenu col-6">
-           <p> <button class="btn btn-secondary col-md-6"> Usuarios </button>
-           </p>
+           <p> <a href="ConfiguracionUsuario.php">
+             <button class="btn btn-secondary col-md-6"> Usuarios </button>
+           </a>           </p>
            <p> 
-           <button class="btn btn-secondary col-md-6"> Roles </button>
+           <p> <a href="roles.php">
+           <button class="btn btn-secondary col-md-6"> Roles </button></a>
           </p>
-          <p> <button class="btn btn-secondary col-md-6"> Permisos </button>
-          </p>
+          <p> <a href="permisos.php">
+          <button class="btn btn-secondary col-md-6"> Permisos </button>
+          </a></p>
           <p> 
           <button class="btn btn-secondary col-md-6"> Asignacion </button>
          </p>

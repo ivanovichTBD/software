@@ -22,10 +22,10 @@
                     LISTA DE ROLES Y USUARIOS
                 </div>
                 <div class="docente mb-2">   
-                       DOCENTE
+                       ESTUDIANTE
                 </div>
                     <div  class="estudiante mb-2">   
-                       ESTUDIANTE
+                       DOCENTE
                     </div>
                 
   
@@ -36,6 +36,7 @@
             <div  class="col-4">   
             <table class="table table-striped table-light table-responsive">
                 <thead>
+                 
                   <tr>
                     <th scope="col">Nro</th>
                     <th scope="col">Nombre</th>
@@ -43,22 +44,33 @@
                     </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    </tr>
-                  <tr>
-                    <th >3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    </tr>
-                </tbody>
+               	<?php 
+					require('datos_conexion.php');
+					$conexion=mysqli_connect($db_host,$db_usuario,$db_contra);
+					if(mysqli_connect_errno()){
+							echo "Fallo al conectar con la BD";
+							exit();	
+					}
+	
+					mysqli_select_db($conexion,$db_nombre) or die("No se encontro la BBDD");
+					mysqli_set_charset($conexion,"utf8");
+					$Consulta="SELECT id,nombre,apellido FROM usuario,rol WHERE usuario.idrol=rol.idrol and rol='Estudiante'";
+					$resultado= mysqli_query($conexion,$Consulta);
+					$cont=1;
+					while($fila=mysqli_fetch_row($resultado)){
+							
+						echo "<tr>";
+                    	echo "<td>$cont</td>";
+                    	echo "<td>$fila[1]</td>";
+                    	echo "<td>$fila[2]</td>";
+                    	echo "</tr>";
+						$cont++;
+					}
+					
+					
+				?>
+                
+				</tbody>
               </table>
             </div> 
 
@@ -75,21 +87,30 @@
                         </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        </tr>
+                    <?php 
+							require('datos_conexion.php');
+							$conexion2=mysqli_connect($db_host,$db_usuario,$db_contra);
+							if(mysqli_connect_errno()){
+									echo "Fallo al conectar con la BD";
+									exit();	
+							}
+			
+							mysqli_select_db($conexion2,$db_nombre) or die("No se encontro la BBDD");
+							mysqli_set_charset($conexion2,"utf8");
+							$Consulta2="SELECT id,nombre,apellido FROM usuario,rol WHERE usuario.idrol=rol.idrol and rol='Docente'";
+							$resultado2= mysqli_query($conexion2,$Consulta2);
+							$cont2=1;
+							while($fila2=mysqli_fetch_row($resultado2)){
+									
+								echo "<tr>";
+								echo "<td>$cont2</td>";
+								echo "<td>$fila2[1]</td>";
+								echo "<td>$fila2[2]</td>";
+								echo "</tr>";
+								$cont2++;
+							}
+							
+						?>
                     </tbody>
                   </table>
                 </div> 
