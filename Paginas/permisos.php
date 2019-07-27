@@ -15,19 +15,19 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container card">
+    <div class="container card" style="color:white">
                 <div class="panel panel-default">
                         <div class="registro panel-body letrasSub">
                           PERMISOS
                         </div>
                 </div>
         
-             <div class="panel panel-default">
+             <div class="panel panel-default" >
                         <div class="text-uppercase docente registro panel-body letrasSub">
                             DOCENTES
                         </div>
              </div>
-        <div class="row">
+        <div class="row" >
                 
                         <label class="espacio letra" for ="email">Creación de exámenes</label>
                         <button class="per submit Botones" class="btn btn-primary">Activar</button>
