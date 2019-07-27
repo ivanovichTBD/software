@@ -20,26 +20,13 @@
 	
 	$conexion=mysqli_connect($db_host,$db_usuario,$db_contra);
 	
-	if(mysqli_connect_errno()){
-		echo "Fallo al conectar con la BD";
-		exit();	
-	}
+	echo $nomRoll;
 	
+	$Consulta="SELECT idrol FROM rol WHERE rol=$nomRoll";
+	$resultado= mysqli_query($conexion,$Consulta);
+	$fil=mysqli_fetch_row($resultado);
 	
-	
-	mysqli_select_db($conexion,$db_nombre) or die("No se encontro la BBDD");
-	mysqli_set_charset($conexion,"utf8");
-	
-	$consulat_id_rol="SELECT idrol FROM rol WHERE rol=$nomRoll";
-	
-	$resultado=mysqli_query($conexion,$consulat_id_rol);
-	
-	$rol=mysqli_fetch_assoc($resultado);
-	
-    echo $rol['idrol'];
-	
-	
-	
+	$nroRol=$fil[0];
 	/*
 	
 	

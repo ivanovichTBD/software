@@ -99,7 +99,7 @@ function generar() {
                 </div>
                     	<div>
                             <lavel class="erwi" for="option">Sexo:</lavel>
-                            <select class="ole"  value ="<?php echo Femenino ?>" name="option">
+                            <select class="ole"  name="option">
                                 <option value="Masculino">Masculino</option>
                                 <option value="Femenino">Femenino</option>
                             </select>
