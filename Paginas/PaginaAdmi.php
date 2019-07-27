@@ -17,7 +17,7 @@
 <body>
     <header class=" text-center font-weight-bolder row mr-0" >
                     
-                    <div class="Titulo card-header py-3 text-light ">   Bienvenido a Ingenieria de Software
+                    <div class="Titulo card-header py-3 ml-5">   Bienvenido a Ingenieria de Software
                         </div>
                <button class="ImgUser">
 
