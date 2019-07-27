@@ -40,16 +40,12 @@
 	$fila=mysqli_fetch_row($resultado);
 	
 	$nroRol=$fila[0];
+
 	
-	
-	
-	
-	
-	
-	
-	
-	$consultar="INSERT INTO usuario (nombre,apellido,email,nomUsuario,ci,sexo,contraseña,idrol)  	     VALUES ('$usuario', '$apellido', '$correo','$nomUsuario','$CI','$sexo','$encriptado','$nroRol')";
+	$consultar="INSERT INTO usuario (nombre,apellido,email,nomUsuario,ci,sexo,contraseña,idrol) VALUES ('$usuario', '$apellido', '$correo','$nomUsuario','$CI','$sexo','$encriptado','$nroRol')";
 	mysqli_query($conexion,$consultar);
+	
+	header("Location:ConfiguracionUsuario.php");
 	
 	
 ?>

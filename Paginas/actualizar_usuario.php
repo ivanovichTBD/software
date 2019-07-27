@@ -22,27 +22,17 @@
 	
 	echo $nomRoll;
 	
-	$Consulta="SELECT idrol FROM rol WHERE rol=$nomRoll";
-	$resultado= mysqli_query($conexion,$Consulta);
-	$fil=mysqli_fetch_row($resultado);
-	
-	$nroRol=$fil[0];
-	/*
 	
 	
-	$Consulta="UPDATE usuario SET
-					nombre=$usuario,
-					apellido=$apellido,
-					ci=$CI,
-					sexo=$sexo,
-					correo=$correo,
-					idrol=$idrol WHERE nomUsuario=$nomUsuario";
+	
+	
+	$Consulta="UPDATE usuario SET nombre='$usuario' where nomUsuario='$nomUsuario'";
 	
 	mysqli_query($conexion,$Consulta);
 	
 	
 	
-	header('location:ConfiguracionUsuario.php');*/
+	//header('location:ConfiguracionUsuario.php');
 
  ?>
 </body>

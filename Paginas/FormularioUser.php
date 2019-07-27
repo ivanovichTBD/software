@@ -86,6 +86,7 @@ function generar() {
     	</div>
 
        	<div>
+         
             <button class="ole submit" class="btn btn-primary">Guardar</button>
                
        	</div>
