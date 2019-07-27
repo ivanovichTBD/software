@@ -43,9 +43,7 @@
           <p> <a href="permisos.php">
           <button class="btn btn-secondary col-md-6"> Permisos </button>
           </a></p>
-          <p> 
-          <button class="btn btn-secondary col-md-6"> Asignacion </button>
-         </p>
+          
         </div>
         <div class="Cal col-6">
          <table id="calendar">
@@ -68,9 +66,10 @@
         </button>
         <div class="NombreAdmi row">
             <div id="user">Administrador</div>
-          <button class="CerrarSe">
-              </button>
-          </div>
+          <a href="cerrar_sesion.php">
+            <button class="CerrarSe">
+          </button>
+          </a>          </div>
       </nav>
     </div>
     

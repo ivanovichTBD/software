@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../node_modules/bootstrap-toggle/css/bootstrap2-toggle.min.css">
     <link rel="stylesheet" href="../node_modules/pageCSS/index.css">
     <link rel="stylesheet" href="../node_modules/pageCSS/Formulario.css">
+    <link rel="stylesheet" href="../node_modules/pageCSS/BotonesLetras.css">
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -29,50 +30,66 @@ function generar() {
 	return contraseña;
 }
 </script>
-        
+ 
+ <?php
+	 $str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+	   $password = "";
+	
+	   for($i=0;$i<10;$i++) {
+		  
+		  $password .= substr($str,rand(0,62),1);
+	   }
+	   
+?>       
 
     <div class="container card">
     <form role="form">
-            <div class="registro panel panel-default">
-                    <div class="panel-body">
+            <div class="registro panel panel-default mt-2">
+                    <div class="panel-body letrasSub">
                       REGISTRO
                     </div>
             </div>
        </form>     
-            
+        <div class="letra">    
        <form action="guardar_usuario.php" method="post">    
             <div class="row">
                 
-              <label class="qui" for ="email">Name</label>
+              <label class="qui ml-3" for ="email">Nombre :</label>
                <input   type="text" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" class="nombre form-control" name ="nombre" required>
             
             </div>
             
             
           <div class="row">
-              <label class="erwin" for="email">Apellido</label>
+              <label class="erwin ml-3" for="email">Apellido :</label>
               <input type="text"  pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,64}" class="apellido form-control" name="apellido" required>
           </div>
           <div class="row">
                 
-              <label class="qui" for ="email">Nombre Usuario</label>
+              <label class="qui ml-3" for ="email">Nombre Usuario :</label>
                <input   type="text" pattern="^([a-z]+[0-9]{0,2}){5,12}$" class="nombre form-control" name ="nombreU" required>
             
           </div>
-                <div class="cin row">
-                    <label class="erwin" for="number">CI</label>
+                <div class=" row">
+                    <label class="erwin ml-3 " for="number">CI :</label>
                     <input type="text"  class="ci form-control"  id="ci_press" name="ci_press" required>
                     <div id ="error_ci"></div>
                 </div>
+                
+                <div class=" row">
+                    <label class="erwin ml-3 " for="number">Contraseña:</label>
+                    <input type="text"  class="ci form-control"  id="ci_press" name="contraseña" value="<?php echo $password?>" required>
+                    <div id ="error_ci"></div>
+                </div>
                     	<div>
-                            <lavel class="erwi" for="option">Sexo:</lavel>
+                            <lavel class="erwi" for="option">Sexo :</lavel>
                             <select class="ole"  name="option">
                                 <option value="Masculino">Masculino</option>
                                 <option value="Femenino">Femenino</option>
                             </select>
                         </div>
         <div class="row">
-          <label class="erwin" for="email">Email:</label>
+          <label class="erwi ml-3 mt-3" for="email">Email:</label>
           <input type="email" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" class="email form-control" name="email"required>
           
         </div>
@@ -83,6 +100,7 @@ function generar() {
             <option value="Docente">Docente</option>
             <option value="Estudiante">Estudiante</option>"
         </select>
+<<<<<<< HEAD
     	</div>
 
        	<div>
@@ -96,5 +114,20 @@ function generar() {
             <button class="cancela ole submit" class="btn btn-primary">Cancelar</button>
       </a>
      <!-- wilder-->
+=======
+        </div>
+        <div class="mt-5">
+            <button class="submit ml-3 bontonRegistrar" class="btn btn-primary">Guardar</button>
+            <a href="PaginaAdmi.php">
+            <button class="submit ml-3 bontonRegistrar" class="btn btn-primary">Cancelar</button>
+      </a>         
+       	</div>
+      </form>
+      
+          
+    </div>
+
+       	
+>>>>>>> a82ea31ae312f6618fe1549972434ea7e42b5aca
 </body>
 </html>

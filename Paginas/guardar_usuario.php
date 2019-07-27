@@ -17,8 +17,7 @@
 	$CI=$_POST['ci_press'];
 	$sexo=$_POST['option'];
 	$correo=$_POST['email'];
-	$password=generar();
-	
+	$password=$_POST['contraseña'];
 	$nomRol=$_POST['nomRol'];
 	
 	$encriptado=password_hash($password, PASSWORD_DEFAULT);
