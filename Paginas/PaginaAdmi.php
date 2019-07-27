@@ -68,9 +68,10 @@
         </button>
         <div class="NombreAdmi row">
             <div id="user">Administrador</div>
-          <button class="CerrarSe">
-              </button>
-          </div>
+          <a href="cerrar_sesion.php">
+            <button class="CerrarSe">
+          </button>
+          </a>          </div>
       </nav>
     </div>
     

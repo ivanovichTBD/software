@@ -2,27 +2,34 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Documento sin título</title>
+<title></title>
 </head>
 
 <body>
+
 <?php
-
-
-try{
-
-		$base=new PDO("mysql:host=localhost; dbname=prueba","root","");
-		$base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$sql="SELECT * FROM usuarios_pass WHERE USUARIO= :login AND PASSWORD= :password";
-		$resultado=$base->prepare($sql);
-		$login=htmlentities(addslashes($_POST["login"]));
-		$password=htmlentities(addslashes($_POST["password"]));
-		
-		$resultado->bindValue(":login", $login);
-		$resultado->bindValue(":password", $password);
-		$resultado->execute();
-		$numero_registro=$resultado->rowCount();
-		if($numero_registro!=0)
+			$db_host="localhost";
+			$db_nombre="basedatos";
+			$db_usuario="root";
+			$db_contra="";
+			
+			$conexion=mysqli_connect($db_host,$db_usuario,$db_contra);
+			
+			if(mysqli_connect_errno()){
+				echo "Fallo al conectar con la BD";
+				exit();	
+			}
+	
+			mysqli_select_db($conexion,$db_nombre) or die("No se encontro la BBDD");
+			mysqli_set_charset($conexion,"utf8");
+			
+			$consulta="SELECT nomUsuario,contraseña FROM usuario,rol WHERE usuario.idrol=rol.idrol and rol='Administrador'";
+			$resultado=mysqli_query($conexion,$consulta);
+			
+			$filas=mysqli_fetch_row($resultado);
+			
+			echo $filas[0];			
+		if($_POST['login']==$filas[0] && $_POST['password']==$filas[1])
 		{
 			session_start();
 			
@@ -34,10 +41,8 @@ try{
 		{
 			header("location:software.php");
 		}
-}catch(Exception $e){
-	die("Error:". $e->getMessage());
-}
 
+	
 
 ?>
 </body>
