@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../node_modules/pageCSS/roles.css">
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../node_modules/bootstrap-toggle/css/bootstrap2-toggle.min.css">
+    <link rel="stylesheet" href="../node_modules/pageCSS/BotonesLetras.css">
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -18,7 +19,7 @@
         <div class="card">   
                               
            <div class="clasificacion row mb-3 ">
-                <div style="width: 100%" class=" row justify-content-center mt-3 ">
+                <div style="width: 109%" class="row justify-content-center mt-3 ">
                     LISTA DE ROLES Y USUARIOS
                 </div>
                 <div class="docente mb-2">   
@@ -74,7 +75,7 @@
               </table>
             </div> 
 
-            <button class="menu" class="btn btn-primary ">MENÚ</button>
+            <button class="bontonRegistrar menu" class="btn btn-primary ">MENÚ</button>
             
             
             <div  class="col-4">   
