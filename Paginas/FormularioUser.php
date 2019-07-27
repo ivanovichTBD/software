@@ -95,5 +95,6 @@ function generar() {
       <a href="PaginaAdmi.php">
             <button class="cancela ole submit" class="btn btn-primary">Cancelar</button>
       </a>
+     <!-- wilder-->
 </body>
 </html>
