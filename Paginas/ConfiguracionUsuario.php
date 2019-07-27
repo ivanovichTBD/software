@@ -21,12 +21,14 @@
         USUARIOS
     </header>
     <nav class="row justify-content-center mt-3 mb-3">
-        
-        <button class="boton" type="submit" > Crear usuarios</button>
+        <a href="FormularioUser.php">
+        <button class="boton" type="submit" > Crear usuarios</button></a>
+         <p> 
         </nav>
         
         <div class="tamanoTabla row">
-            <button class="boton"  type="submit"> Menu</button>
+           <a href="PaginaAdmi.php">
+            <button class="boton"  type="submit">volver</button></a>
     
 
             <table class=" table table-bordered col-8 ml-5">
@@ -41,14 +43,41 @@
           </thead>
           <tbody class="tablita"  >
             <tr >
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td><button>EDITAR</button></td>
-                <td><button>ELIMINAR</button></td>
-                <td><button>PERMISOS</button></td>
-                
+            
+            
+               	<?php 
+					require('datos_conexion.php');
+					$conexion=mysqli_connect($db_host,$db_usuario,$db_contra);
+					if(mysqli_connect_errno()){
+							echo "Fallo al conectar con la BD";
+							exit();	
+					}
+	
+					mysqli_select_db($conexion,$db_nombre) or die("No se encontro la BBDD");
+					mysqli_set_charset($conexion,"utf8");
+					$Consulta="SELECT nombre,ci,rol FROM usuario,rol WHERE usuario.idrol=rol.idrol";
+					$resultado= mysqli_query($conexion,$Consulta);
+					$cont=1;
+					while($fila=mysqli_fetch_row($resultado)){
+							
+						echo "<tr>";
+                    	echo "<td>$cont</td>";
+                    	echo "<td>$fila[0]</td>";
+                    	echo "<td>$fila[1]</td>";
+						echo "<td>$fila[2]</td>";
+               
+						
+						$cont++;
+						
+						print "<td> <a href='EditarUsuario.php?ci=".$fila[1]."'> <button>EDITAR</button></a> </td>
+                		<td> <a href='eliminiarUsuario.php?ci=".$fila[1]."'> <button>ELIMINAR</button></a></td>
+                		<td><a href='permisos.php?ci=".$fila[1]."'><button>PERMISOS</button></a></td>";
+					}
+					
+					
+	
+               
+                ?>
             </tr>
              </tbody>
       </table>
