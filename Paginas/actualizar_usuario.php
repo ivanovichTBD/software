@@ -10,6 +10,7 @@
 
 	require("datos_conexion.php");
 	
+	
 	$usuario=$_POST['nombre'];
 	$apellido=$_POST['apellido'];
 	$nomUsuario=$_POST['nombreU'];
@@ -17,22 +18,16 @@
 	$sexo=$_POST['option'];
 	$correo=$_POST['email'];
 	$nomRoll=$_POST['nomRol'];
-	
-	$conexion=mysqli_connect($db_host,$db_usuario,$db_contra);
-	
-	echo $nomRoll;
+
 	
 	
+
 	
-	
-	
-	$Consulta="UPDATE usuario SET nombre='$usuario' where nomUsuario='$nomUsuario'";
+	$Consulta="UPDATE usuario SET nombre=$nombre',apellido='$apellido' WHERE ci='$CI'";
 	
 	mysqli_query($conexion,$Consulta);
 	
-	
-	
-	//header('location:ConfiguracionUsuario.php');
+	header('location:ConfiguracionUsuario.php');
 
  ?>
 </body>

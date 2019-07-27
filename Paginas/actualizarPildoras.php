@@ -30,12 +30,13 @@ function generar() {
 }
 </script>
 <?php
-
+			
    	
-		require('datos_conexion.php');
+			
+			if(!isset($_POST["bot_actualizar"])){
+				require('datos_conexion.php');
 		
-		
-		$nro_ci=$_GET['ci'];
+		    $nro_ci=$_GET['ci'];
 		
 		
 			$conexion=mysqli_connect($db_host,$db_usuario,$db_contra);
@@ -48,7 +49,7 @@ function generar() {
 			mysqli_select_db($conexion,$db_nombre) or die("No se encontro la BBDD");
 			mysqli_set_charset($conexion,"utf8");
 			
-			$consulta="SELECT nombre,apellido,email,nomUsuario,ci,sexo,rol,id FROM usuario,rol WHERE usuario.idrol=rol.idrol and ci=$nro_ci";
+			$consulta="SELECT nombre,apellido,email,nomUsuario,ci,sexo,idrol,id FROM usuario,rol WHERE usuario.idrol=rol.idrol and ci=$nro_ci";
 			$resultado=mysqli_query($conexion,$consulta);
 			
 			$filas=mysqli_fetch_row($resultado);
@@ -59,8 +60,23 @@ function generar() {
 				$nomUsuario=$filas[3];
 				$ci=$filas[4];
 				$sexo=$filas[5];
-				$rol=$filas[6];
-			   $id=$filas[7];
+				$idrol=$filas[6];
+				$id=$filas[7];
+				
+			}else{
+				require("conexionPildoras.php");
+				$Id=$_POST["id"];
+				$nombre=$_POST["nombre"];
+				$apellido=$_POST["apellido"];
+				$nomUsuario=$_POST["nombreU"];
+				$ci=$_POST["ci_press"];
+				$sexo=$_POST["option"];	
+				$rol=$_POST["id"];
+				$sql="UPDATE usuario SET nombre=:miNom, apellido:miApe	email=:miEma,nomUsuario=:nomUsu, ci=:mi_ci, sexo=:sex WHERE id=:mi_id";
+				$resultado=$base->prepare($sql);
+				$resultado->execute(array(":mi_id"=>$Id,":miNom"=>$nombre,":miApe"=>$apellido,":miEma"=>$email,":nomUsu"=>$nomUsuario,":mi_ci"=>$ci,":sex"=>$sexo));
+				header("Location:ConfiguracionUsuario.php");
+			}
  ?>        
 
 
@@ -73,9 +89,9 @@ function generar() {
             </div>
        </form>     
             
-       <form action="prueba.php" method="post">    
+       <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">    
             <div class="row">
-                
+               <input type="hidden" name="id" id="id" value="<?php echo $id ?>" > 
               <label class="qui" for ="email">Name</label>
                <input  type="text" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" value="<?php echo $nombre ?>"class="nombre form-control" name ="nombre" required>
             
@@ -86,9 +102,8 @@ function generar() {
               <label class="erwin" for="email">Apellido</label>
               <input type="text"   pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,64}" maxlength="30" value="<?php echo $apellido ?>" class="apellido form-control" name="apellido" required>
           </div>
-          <input type="hidden" name="id" value ="<?php echo $id?>">
           <div class="row">
-         
+                
               <label class="qui" for ="email">Nombre Usuario</label>
                <input  type="text" pattern="^([a-z]+[0-9]{0,2}){5,12}$" value="<?php echo $nomUsuario ?>" class="nombre form-control" name ="nombreU" required>
             
@@ -120,7 +135,7 @@ function generar() {
     	</div>
 
        	<div>
-            <button class="ole submit" class="btn btn-primary">Guardar</button>
+            <button class="ole submit" id="bot_actualizar" name="bot_actualizar" class="btn btn-primary">Guardar</button>
                
        	</div>
       </form>
