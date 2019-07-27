@@ -15,6 +15,8 @@
     <title>Document</title>
 </head>
 <body>
+
+     
     <div class="container card" style="color:white">
                 <div class="panel panel-default">
                         <div class="registro panel-body letrasSub">
@@ -31,6 +33,10 @@
                 
                         <label class="espacio letra" for ="email">Creación de exámenes</label>
                         <button class="per submit Botones" class="btn btn-primary">Activar</button>
+                        
+        
+                        
+                        
                         <button class="ole submit Botones" class="btn btn-primary">Desactivar</button>
                       
         </div>
@@ -61,9 +67,9 @@
       
 </div>
 <div>
-        <button class="permisos submit bontonRegistrar" class="btn btn-primary">Guardar</button>
+        <a href="ConfiguracionUsuario.php"><button class="permisos submit bontonRegistrar" class="btn btn-primary">Guardar</button></a>
         </form>
-            <button class="permiso submit bontonRegistrar" class="btn btn-primary">Cancelar</button>
+             <a href="PaginaAdmi.php"><button class="permiso submit bontonRegistrar" class="btn btn-primary">Cancelar</button></a>
             </form>
    </div>
 </div>

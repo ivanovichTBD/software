@@ -117,6 +117,7 @@ function generar() {
 =======
         </div>
         <div class="mt-5">
+       
             <button class="submit ml-3 bontonRegistrar" class="btn btn-primary">Guardar</button>
             <a href="PaginaAdmi.php">
             <button class="submit ml-3 bontonRegistrar" class="btn btn-primary">Cancelar</button>

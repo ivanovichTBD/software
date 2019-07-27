@@ -32,6 +32,16 @@
 	mysqli_select_db($conexion,$db_nombre) or die("No se encontro la BBDD");
 	mysqli_set_charset($conexion,"utf8");
 	
+	$res=mysqli_query($conexion,"SELECT * FROM usuario");
+	$contador=0;
+	while($cons=mysqli_fetch_array($res))
+	{
+		if($nomUsuario==$cons['nomUsuario'])
+		{
+			$contador=1;
+	    }
+    }
+	
 	$Consulta="SELECT * FROM rol WHERE rol='$nomRol'";
 	
 	$resultado= mysqli_query($conexion,$Consulta);
@@ -39,13 +49,20 @@
 	$fila=mysqli_fetch_row($resultado);
 	
 	$nroRol=$fila[0];
-
+    
+	if($contador==0)
+	{
 	
 	$consultar="INSERT INTO usuario (nombre,apellido,email,nomUsuario,ci,sexo,contraseña,idrol) VALUES ('$usuario', '$apellido', '$correo','$nomUsuario','$CI','$sexo','$encriptado','$nroRol')";
 	mysqli_query($conexion,$consultar);
 	
 	header("Location:ConfiguracionUsuario.php");
-	
+	}else
+	{
+		echo "<script>alert('Usuario ya existe');</script>";
+		header("Location:FormularioUser.php");
+		
+    }
 	
 ?>
 </body>

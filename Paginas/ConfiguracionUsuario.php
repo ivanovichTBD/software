@@ -71,7 +71,7 @@
 						
 						print "<td> <a href='EditarUsuario.php?ci=".$fila[1]."'> <button>EDITAR</button></a> </td>
                 		<td> <a href='eliminiarUsuario.php?ci=".$fila[1]."'> <button>ELIMINAR</button></a></td>
-                		<td><a href='permisos.php?ci=".$fila[1]."'><button>PERMISOS</button></a></td>";
+                		<td><a href='permisos.php?rol=".$fila[2]."'><button>PERMISOS</button></a></td>";
 					}
 					
 					
