@@ -35,27 +35,28 @@
 			<div class="card-body">
 				
 				<form action="comprobar_login.php" method="post">
+                
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="username" name="usuario"  required>
+						<input type="text" class="form-control" placeholder="username" name="login"  required>
 						
 					</div>
+                    <br>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" placeholder="password" name="contraseña" required>
+						<input type="password" class="form-control" placeholder="password" name="password" required>
 					</div>
-					<div class="row align-items-center remember">
-						<input type="checkbox">Recordarme
-					</div>
+					<br>
 					<div class="form-group">
 						<input type="submit" value="Login" class="btn login_btn">
 					</div>
 				</form>
-			</div>
+			
+            </div>
 			
 		</div>
 	</div>
