@@ -30,7 +30,7 @@
 				echo "Fallo al conectar con la BD";
 				exit();	
 			}
-	
+	 
 			mysqli_select_db($conexion,$db_nombre) or die("No se encontro la BBDD");
 			mysqli_set_charset($conexion,"utf8");
 			
